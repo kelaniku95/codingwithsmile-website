@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coding With Smile 😊 | IT Training Center Bhildi</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #FF6B35;
+  --secondary: #1A1A2E;
+  --accent: #FFD700;
+  --green: #00C896;
+  --light: #FFF8F5;
+  --text: #1A1A2E;
+  --muted: #6B7280;
+  --card-bg: #ffffff;
+  --border: #FFE0D0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--light);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── NAVBAR ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255,248,245,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 70px;
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem; font-weight: 800;
+  color: var(--primary);
+}
+.nav-logo span { color: var(--secondary); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--text);
+  font-weight: 500; font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--primary); }
+.nav-cta {
+  background: var(--primary); color: white;
+  border: none; padding: 0.6rem 1.4rem;
+  border-radius: 50px; font-family: 'DM Sans', sans-serif;
+  font-weight: 600; cursor: pointer;
+  text-decoration: none; font-size: 0.9rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,107,53,0.3); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 25px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+
+/* ── HERO ── */
+#home {
+  min-height: 100vh;
+  padding: 120px 5% 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(255,107,53,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(0,200,150,0.06) 0%, transparent 50%);
+}
+.hero-dots {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: radial-gradient(circle, rgba(255,107,53,0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.2);
+  color: var(--primary); padding: 0.4rem 1rem;
+  border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s ease forwards;
+}
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800; line-height: 1.1;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+.hero-title .highlight {
+  color: var(--primary);
+  position: relative;
+}
+.hero-title .highlight::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; right: 0; height: 4px;
+  background: var(--accent); border-radius: 2px;
+}
+.hero-desc {
+  font-size: 1.1rem; color: var(--muted); line-height: 1.7;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+.hero-btns {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+.btn-primary {
+  background: var(--primary); color: white;
+  padding: 0.8rem 2rem; border-radius: 50px;
+  text-decoration: none; font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,107,53,0.35); }
+.btn-outline {
+  border: 2px solid var(--secondary); color: var(--secondary);
+  padding: 0.8rem 2rem; border-radius: 50px;
+  text-decoration: none; font-weight: 600; font-size: 1rem;
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-outline:hover { background: var(--secondary); color: white; }
+
+.hero-stats {
+  display: flex; gap: 2rem; margin-top: 3rem;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem; font-weight: 800; color: var(--primary);
+  display: block;
+}
+.stat-label { font-size: 0.85rem; color: var(--muted); }
+
+.hero-visual { position: relative; z-index: 1; animation: fadeIn 0.8s 0.3s ease both; }
+.hero-card {
+  background: white; border-radius: 24px;
+  padding: 2rem; box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  border: 1px solid var(--border);
+  position: relative;
+}
+.hero-card::before {
+  content: '😊';
+  position: absolute; top: -20px; right: 20px;
+  font-size: 3rem;
+  animation: bounce 2s infinite;
+}
+.code-block {
+  background: var(--secondary); border-radius: 12px;
+  padding: 1.2rem; font-family: monospace; font-size: 0.9rem;
+  color: #e2e8f0; line-height: 1.8; margin-bottom: 1.5rem;
+}
+.code-block .kw { color: #ff79c6; }
+.code-block .fn { color: #50fa7b; }
+.code-block .str { color: #f1fa8c; }
+.code-block .cm { color: #6272a4; }
+.course-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.pill {
+  background: var(--light); border: 1px solid var(--border);
+  padding: 0.3rem 0.8rem; border-radius: 50px;
+  font-size: 0.8rem; font-weight: 600; color: var(--text);
+}
+.pill.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* ── SECTION COMMON ── */
+section { padding: 80px 5%; }
+.section-tag {
+  display: inline-block;
+  background: rgba(255,107,53,0.1);
+  color: var(--primary); font-weight: 700;
+  font-size: 0.8rem; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.3rem 1rem;
+  border-radius: 50px; margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+  line-height: 1.2; margin-bottom: 1rem;
+}
+.section-desc { color: var(--muted); font-size: 1.05rem; max-width: 600px; line-height: 1.7; }
+
+/* ── STATS BAND ── */
+.stats-band {
+  background: var(--secondary);
+  padding: 50px 5%;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2rem; text-align: center;
+}
+.band-stat { color: white; }
+.band-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 3rem; font-weight: 800; color: var(--primary);
+  display: block;
+}
+.band-label { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.3rem; }
+
+/* ── COURSES ── */
+#courses { background: white; }
+.courses-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+.course-card {
+  border: 1px solid var(--border); border-radius: 20px;
+  padding: 1.8rem; background: var(--card-bg);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative; overflow: hidden;
+}
+.course-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: var(--primary); border-radius: 20px 20px 0 0;
+  transform: scaleX(0); transition: transform 0.3s;
+}
+.course-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.course-card:hover::before { transform: scaleX(1); }
+.course-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+.course-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;
+}
+.course-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.2rem; }
+.course-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+.meta-tag {
+  display: flex; align-items: center; gap: 0.3rem;
+  font-size: 0.8rem; color: var(--muted); font-weight: 500;
+}
+.course-price {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 1rem; border-top: 1px solid var(--border);
+}
+.price {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem; font-weight: 800; color: var(--primary);
+}
+.enroll-btn {
+  background: var(--secondary); color: white;
+  border: none; padding: 0.5rem 1.2rem;
+  border-radius: 50px; font-weight: 600; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+  transition: background 0.2s;
+}
+.enroll-btn:hover { background: var(--primary); }
+
+/* ── TIME SLOTS ── */
+#timeslots { background: var(--light); }
+.slots-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem; margin-top: 2rem;
+}
+.slot-card {
+  background: white; border: 2px solid var(--border);
+  border-radius: 16px; padding: 1.2rem; text-align: center;
+  cursor: pointer; transition: all 0.2s;
+}
+.slot-card:hover, .slot-card.active {
+  border-color: var(--primary); background: rgba(255,107,53,0.05);
+}
+.slot-time { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; }
+.slot-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
+.slot-avail { font-size: 0.75rem; color: var(--green); font-weight: 600; margin-top: 0.3rem; }
+
+/* ── EXPERTS ── */
+#experts { background: white; }
+.experts-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem; margin-top: 3rem;
+}
+.expert-card {
+  text-align: center; padding: 2rem;
+  border: 1px solid var(--border); border-radius: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.expert-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+.expert-avatar {
+  width: 90px; height: 90px; border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem;
+  border: 3px solid var(--primary);
+}
+.expert-name { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; }
+.expert-qual { color: var(--primary); font-size: 0.85rem; font-weight: 600; margin: 0.3rem 0; }
+.expert-phone { color: var(--muted); font-size: 0.85rem; }
+.expert-subjects { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 1rem; }
+.subject-tag {
+  background: var(--light); color: var(--text);
+  padding: 0.2rem 0.7rem; border-radius: 50px;
+  font-size: 0.75rem; font-weight: 600;
+}
+
+/* ── GALLERY ── */
+#gallery { background: var(--light); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem; margin-top: 2rem;
+}
+.gallery-item {
+  border-radius: 16px; overflow: hidden;
+  background: var(--secondary);
+  aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; cursor: pointer;
+  transition: transform 0.3s;
+  position: relative;
+}
+.gallery-item:hover { transform: scale(1.02); }
+.gallery-item.tall { grid-row: span 2; aspect-ratio: unset; }
+.gallery-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: white; padding: 1rem 0.8rem 0.6rem;
+  font-size: 0.85rem; font-weight: 600;
+}
+
+/* ── ENQUIRY ── */
+#enquiry { background: white; }
+.enquiry-wrapper {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: start; margin-top: 3rem;
+}
+.enquiry-info h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;
+}
+.info-item {
+  display: flex; gap: 1rem; margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+.info-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: rgba(255,107,53,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.info-text h4 { font-weight: 600; margin-bottom: 0.2rem; }
+.info-text p { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+
+.enquiry-form { background: var(--light); border-radius: 24px; padding: 2rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 0.8rem 1rem;
+  border: 1px solid var(--border); border-radius: 12px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+  background: white; color: var(--text);
+  transition: border-color 0.2s;
+  outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--primary);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.submit-btn {
+  width: 100%; background: var(--primary); color: white;
+  border: none; padding: 1rem; border-radius: 12px;
+  font-family: 'DM Sans', sans-serif; font-size: 1rem;
+  font-weight: 600; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,107,53,0.3); }
+
+/* ── CONTACT ── */
+#contact { background: var(--secondary); color: white; }
+#contact .section-title { color: white; }
+#contact .section-desc { color: rgba(255,255,255,0.6); }
+.contact-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem; margin-top: 3rem;
+}
+.contact-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 1.5rem; text-align: center;
+}
+.contact-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+.contact-label { color: rgba(255,255,255,0.5); font-size: 0.8rem; margin-bottom: 0.3rem; }
+.contact-value { color: white; font-weight: 600; font-size: 0.95rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: #0f0f1a; color: rgba(255,255,255,0.5);
+  text-align: center; padding: 2rem 5%;
+  font-size: 0.9rem;
+}
+footer a { color: var(--primary); text-decoration: none; }
+
+/* ── CHATBOT ── */
+.chat-btn {
+  position: fixed; bottom: 2rem; right: 2rem;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--primary); color: white;
+  border: none; font-size: 1.8rem; cursor: pointer;
+  box-shadow: 0 8px 30px rgba(255,107,53,0.4);
+  z-index: 999; transition: transform 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.chat-btn:hover { transform: scale(1.1); }
+.chat-window {
+  position: fixed; bottom: 6rem; right: 2rem;
+  width: 340px; height: 480px;
+  background: white; border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  z-index: 999; display: none; flex-direction: column;
+  overflow: hidden; border: 1px solid var(--border);
+}
+.chat-window.open { display: flex; animation: slideUp 0.3s ease; }
+.chat-header {
+  background: var(--primary); color: white;
+  padding: 1rem 1.2rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.chat-avatar { font-size: 1.5rem; }
+.chat-name { font-weight: 700; font-size: 1rem; }
+.chat-status { font-size: 0.75rem; opacity: 0.8; }
+.chat-close { margin-left: auto; cursor: pointer; font-size: 1.2rem; opacity: 0.8; }
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 1rem;
+  display: flex; flex-direction: column; gap: 0.8rem;
+}
+.msg {
+  max-width: 80%; padding: 0.7rem 1rem;
+  border-radius: 16px; font-size: 0.9rem; line-height: 1.5;
+}
+.msg.bot {
+  background: var(--light); color: var(--text);
+  border-radius: 16px 16px 16px 4px; align-self: flex-start;
+}
+.msg.user {
+  background: var(--primary); color: white;
+  border-radius: 16px 16px 4px 16px; align-self: flex-end;
+}
+.chat-input-row {
+  padding: 1rem; border-top: 1px solid var(--border);
+  display: flex; gap: 0.5rem;
+}
+.chat-input {
+  flex: 1; border: 1px solid var(--border);
+  border-radius: 50px; padding: 0.6rem 1rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+  outline: none;
+}
+.chat-input:focus { border-color: var(--primary); }
+.chat-send {
+  background: var(--primary); color: white;
+  border: none; width: 38px; height: 38px;
+  border-radius: 50%; cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s;
+}
+.chat-send:hover { transform: scale(1.1); }
+.typing { display: flex; gap: 4px; padding: 0.7rem 1rem; }
+.typing span {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--muted); animation: typing 1s infinite;
+}
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes typing {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(-4px); opacity: 1; }
+}
+
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  #home { grid-template-columns: 1fr; text-align: center; }
+  .hero-btns { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-visual { display: none; }
+  .stats-band { grid-template-columns: repeat(2, 1fr); }
+  .enquiry-wrapper { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item.tall { grid-row: span 1; aspect-ratio: 4/3; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
+@media (max-width: 600px) {
+  .stats-band { grid-template-columns: repeat(2, 1fr); }
+  .form-row { grid-template-columns: 1fr; }
+  .chat-window { width: calc(100vw - 2rem); right: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Coding<span>WithSmile</span> 😊</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#experts">Experts</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#enquiry">Enquiry</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#enquiry" class="nav-cta">Free Demo →</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🎓 IT Training Center · Bhildi, Gujarat</div>
+    <h1 class="hero-title">
+      Learn to Code<br>with a <span class="highlight">Smile</span> 😊
+    </h1>
+    <p class="hero-desc">
+      Professional IT training in Bhildi, Banaskantha. Python, Web Development, C, C++, PHP, .NET, SQL & more — taught by MCA & PhD qualified experts!
+    </p>
+    <div class="hero-btns">
+      <a href="#enquiry" class="btn-primary">📚 Free Demo Class →</a>
+      <a href="#courses" class="btn-outline">View Courses</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num" data-target="150">0</span>
+        <span class="stat-label">Students Passed</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="45">0</span>
+        <span class="stat-label">Currently Studying</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="8">0</span>
+        <span class="stat-label">Courses</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="code-block">
+        <span class="cm"># Welcome to Coding With Smile!</span><br>
+        <span class="kw">def</span> <span class="fn">learn_coding</span>():<br>
+        &nbsp;&nbsp;<span class="kw">return</span> <span class="str">"Your future starts here 🚀"</span><br><br>
+        <span class="fn">print</span>(<span class="fn">learn_coding</span>())<br>
+        <span class="cm"># Output: Your future starts here 🚀</span>
+      </div>
+      <div class="course-pills">
+        <span class="pill active">Python</span>
+        <span class="pill">HTML/CSS/JS</span>
+        <span class="pill">C / C++</span>
+        <span class="pill">PHP</span>
+        <span class="pill">.NET</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Oracle</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="band-stat reveal">
+    <span class="band-num">150+</span>
+    <div class="band-label">Students Passed Out</div>
+  </div>
+  <div class="band-stat reveal">
+    <span class="band-num">45+</span>
+    <div class="band-label">Currently Studying</div>
+  </div>
+  <div class="band-stat reveal">
+    <span class="band-num">3</span>
+    <div class="band-label">Expert Teachers</div>
+  </div>
+  <div class="band-stat reveal">
+    <span class="band-num">100%</span>
+    <div class="band-label">Certificate Provided</div>
+  </div>
+</div>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="section-tag">📚 Our Courses</div>
+  <h2 class="section-title">Choose Your Path to Success</h2>
+  <p class="section-desc">Professional courses with certificates. Online & offline both available. FREE demo class for all!</p>
+  <div class="courses-grid">
+    <div class="course-card reveal">
+      <span class="course-icon">🐍</span>
+      <div class="course-name">Python Programming</div>
+      <div class="course-desc">From basics to advanced. Variables, loops, functions, OOP, file handling & projects.</div>
+      <div class="course-meta">
+        <span class="meta-tag">⏱ 2-3 months</span>
+        <span class="meta-tag">📅 1hr/day</span>
+        <span class="meta-tag">🎓 Certificate</span>
+      </div>
+      <div class="course-price">
+        <span class="price">₹5,000</span>
+        <button class="enroll-btn" onclick="openEnquiry('Python')">Enroll Now</button>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <span class="course-icon">🌐</span>
+      <div class="course-name">HTML / CSS / JS</div>
+      <div class="course-desc">Build beautiful websites from scratch. HTML5, CSS3, JavaScript, responsive design.</div>
+      <div class="course-meta">
+        <span class="meta-tag">⏱ 2-3 months</span>
+        <span class="meta-tag">📅 1hr/day</span>
+        <span class="meta-tag">🎓 Certificate</span>
+      </div>
+      <div class="course-price">
+        <span class="price">₹3,500</span>
+        <button class="enroll-btn" onclick="openEnquiry('HTML/CSS/JS')">Enroll Now</button>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <span class="course-icon">⚙️</span>
+      <div class="course-name">C Programming</div>
+      <div class="course-desc">Foundation of programming. Pointers, arrays, structures, file I/O & algorithms.</div>
+      <div class="course-meta">
+        <span class="meta-tag">⏱ 2-3 months</span>
+        <span class="meta-tag">📅 1hr/day</span>
+        <span class="meta-tag">🎓 Certificate</span>
+      </div>
+      <div class="course-price">
+        <span class="price">₹4,000</span>
+        <button class="enroll-btn" onclick="openEnquiry('C Programming')">Enroll Now</button>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <span class="course-icon">🔷</span>
+      <div class="course-name">C++ Programming</div>
+      <div class="course-desc">Object-oriented programming. Classes, inheritance, polymorphism, STL & more.</div>
+      <div class="course-meta">
+        <span class="meta-tag">⏱ 2-3 months</span>
+        <span class="meta-tag">📅 1hr/day</span>
+        <span class="meta-tag">🎓 Certificate</span>
+      </div>
+      <div class="course-price">
+        <span class="price">₹4,000</span>
+        <button class="enroll-btn" onclick="openEnquiry('C++')">Enroll Now</button>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <span class="course-icon">🐘</span>
+      <div class="course-name">PHP Development</div>
+      <div class="course-desc">Server-side web development. PHP basics, MySQL integration, forms & sessions.</div>
+      <div class="course-meta">
+        <span class="meta-tag">⏱ 2-3 months</span>
+        <span class="meta-tag">📅 1hr/day</span>
+        <span class="meta-tag">🎓 Certificate</span>
+      </div>
+      <div class="course-price">
+        <span class="price">₹4,500</span>
+        <button class="enroll-btn" onclick="openEnquiry('PHP')">Enroll Now</button>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <span class="course-icon">💜</span>
+      <div class="course-name">.NET Framework</div>
+      <div class="course-desc">Microsoft .NET development. C#, ASP.NET, Windows Forms & web applications.</div>
+      <div class="course-meta">
+        <span class="meta-tag">⏱ 2-3 months</span>
+        <span class="meta-tag">📅 1hr/day</span>
+        <span class="meta-tag">🎓 Certificate</span>
+      </div>
+      <div class="course-price">
+        <span class="price">₹4,500</span>
+        <button class="enroll-btn" onclick="openEnquiry('.NET')">Enroll Now</button>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <span class="course-icon">🗄️</span>
+      <div class="course-name">SQL Database</div>
+      <div class="course-desc">Database management. Queries, joins, stored procedures, triggers & optimization.</div>
+      <div class="course-meta">
+        <span class="meta-tag">⏱ 2-3 months</span>
+        <span class="meta-tag">📅 1hr/day</span>
+        <span class="meta-tag">🎓 Certificate</span>
+      </div>
+      <div class="course-price">
+        <span class="price">₹3,500</span>
+        <button class="enroll-btn" onclick="openEnquiry('SQL')">Enroll Now</button>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <span class="course-icon">🔶</span>
+      <div class="course-name">Oracle Database</div>
+      <div class="course-desc">Enterprise database. PL/SQL, Oracle architecture, performance tuning & admin.</div>
+      <div class="course-meta">
+        <span class="meta-tag">⏱ 2-3 months</span>
+        <span class="meta-tag">📅 1hr/day</span>
+        <span class="meta-tag">🎓 Certificate</span>
+      </div>
+      <div class="course-price">
+        <span class="price">₹3,500</span>
+        <button class="enroll-btn" onclick="openEnquiry('Oracle')">Enroll Now</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIME SLOTS -->
+<section id="timeslots" class="reveal">
+  <div class="section-tag">⏰ Flexible Timings</div>
+  <h2 class="section-title">Pick Your Preferred Time Slot</h2>
+  <p class="section-desc">We offer flexible timings from morning to evening — fit learning into your schedule!</p>
+  <div class="slots-grid">
+    <div class="slot-card" onclick="selectSlot(this)">
+      <div class="slot-time">7:00 AM</div>
+      <div class="slot-label">Morning Batch</div>
+      <div class="slot-avail">✅ Available</div>
+    </div>
+    <div class="slot-card" onclick="selectSlot(this)">
+      <div class="slot-time">9:00 AM</div>
+      <div class="slot-label">Morning Batch</div>
+      <div class="slot-avail">✅ Available</div>
+    </div>
+    <div class="slot-card" onclick="selectSlot(this)">
+      <div class="slot-time">11:00 AM</div>
+      <div class="slot-label">Mid Morning</div>
+      <div class="slot-avail">✅ Available</div>
+    </div>
+    <div class="slot-card" onclick="selectSlot(this)">
+      <div class="slot-time">2:00 PM</div>
+      <div class="slot-label">Afternoon Batch</div>
+      <div class="slot-avail">✅ Available</div>
+    </div>
+    <div class="slot-card" onclick="selectSlot(this)">
+      <div class="slot-time">4:00 PM</div>
+      <div class="slot-label">Evening Batch</div>
+      <div class="slot-avail">✅ Available</div>
+    </div>
+    <div class="slot-card" onclick="selectSlot(this)">
+      <div class="slot-time">6:00 PM</div>
+      <div class="slot-label">Evening Batch</div>
+      <div class="slot-avail">✅ Available</div>
+    </div>
+    <div class="slot-card" onclick="selectSlot(this)">
+      <div class="slot-time">Online</div>
+      <div class="slot-label">Anytime</div>
+      <div class="slot-avail">✅ Flexible</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTS -->
+<section id="experts">
+  <div class="section-tag">👨‍🏫 Our Experts</div>
+  <h2 class="section-title">Learn from the Best</h2>
+  <p class="section-desc">Qualified, experienced teachers dedicated to your success.</p>
+  <div class="experts-grid">
+    <div class="expert-card reveal">
+      <div class="expert-avatar">👨‍💻</div>
+      <div class="expert-name">Nikunj Maheshwari</div>
+      <div class="expert-qual">MCA Graduate</div>
+      <div class="expert-phone">📞 97144 65982</div>
+      <div class="expert-subjects">
+        <span class="subject-tag">Python</span>
+        <span class="subject-tag">Web Dev</span>
+        <span class="subject-tag">AI/ML</span>
+      </div>
+    </div>
+    <div class="expert-card reveal">
+      <div class="expert-avatar">👨‍🔬</div>
+      <div class="expert-name">Yogesh Thakkar</div>
+      <div class="expert-qual">PhD Scholar</div>
+      <div class="expert-phone">📞 85119 96361</div>
+      <div class="expert-subjects">
+        <span class="subject-tag">C / C++</span>
+        <span class="subject-tag">.NET</span>
+        <span class="subject-tag">SQL</span>
+      </div>
+    </div>
+    <div class="expert-card reveal">
+      <div class="expert-avatar">👨‍🏫</div>
+      <div class="expert-name">Bhavesh Panchal</div>
+      <div class="expert-qual">B.Ed Graduate</div>
+      <div class="expert-phone">📞 96648 98764</div>
+      <div class="expert-subjects">
+        <span class="subject-tag">PHP</span>
+        <span class="subject-tag">Oracle</span>
+        <span class="subject-tag">HTML/CSS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-tag">📸 Our Classroom</div>
+  <h2 class="section-title">Life at Coding With Smile</h2>
+  <p class="section-desc">A welcoming, modern learning environment in the heart of Bhildi.</p>
+  <div class="gallery-grid">
+    <div class="gallery-item tall" style="background: linear-gradient(135deg, #1A1A2E, #16213E); font-size: 5rem;">
+      💻
+      <div class="gallery-label">Computer Lab</div>
+    </div>
+    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B35, #ff8c5a);">
+      🎓
+      <div class="gallery-label">Certificate Ceremony</div>
+    </div>
+    <div class="gallery-item" style="background: linear-gradient(135deg, #00C896, #00a07a);">
+      📊
+      <div class="gallery-label">Classroom Sessions</div>
+    </div>
+    <div class="gallery-item" style="background: linear-gradient(135deg, #7C3AED, #5B21B6);">
+      🏆
+      <div class="gallery-label">Student Achievements</div>
+    </div>
+    <div class="gallery-item" style="background: linear-gradient(135deg, #F59E0B, #D97706);">
+      🤝
+      <div class="gallery-label">Hands-on Training</div>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY -->
+<section id="enquiry">
+  <div class="section-tag">📝 Free Demo</div>
+  <h2 class="section-title">Book Your Free Demo Class</h2>
+  <p class="section-desc">Fill the form below and our team will contact you within 24 hours!</p>
+  <div class="enquiry-wrapper">
+    <div class="enquiry-info reveal">
+      <h3>Why Choose Us? 🌟</h3>
+      <div class="info-item">
+        <div class="info-icon">🎁</div>
+        <div class="info-text">
+          <h4>FREE Demo Class</h4>
+          <p>Try before you enroll! No commitment required.</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📜</div>
+        <div class="info-text">
+          <h4>Certificate on Completion</h4>
+          <p>Get a verified certificate after passing the test.</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🌐</div>
+        <div class="info-text">
+          <h4>Online + Offline Both</h4>
+          <p>Learn from home or visit our center in Bhildi.</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">⏰</div>
+        <div class="info-text">
+          <h4>Flexible Timings</h4>
+          <p>7AM to 7PM — choose a slot that fits your schedule.</p>
+        </div>
+      </div>
+    </div>
+    <div class="enquiry-form reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="fname" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="fphone" placeholder="9876543210">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="femail" placeholder="you@email.com">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Interested Course *</label>
+          <select id="fcourse">
+            <option value="">Select Course</option>
+            <option>Python Programming</option>
+            <option>HTML / CSS / JS</option>
+            <option>C Programming</option>
+            <option>C++ Programming</option>
+            <option>PHP Development</option>
+            <option>.NET Framework</option>
+            <option>SQL Database</option>
+            <option>Oracle Database</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred Time Slot</label>
+          <select id="fslot">
+            <option value="">Select Slot</option>
+            <option>7:00 AM</option>
+            <option>9:00 AM</option>
+            <option>11:00 AM</option>
+            <option>2:00 PM</option>
+            <option>4:00 PM</option>
+            <option>6:00 PM</option>
+            <option>Online (Flexible)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Message (Optional)</label>
+        <textarea id="fmsg" placeholder="Any questions or special requirements..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitForm()">📚 Book Free Demo Class →</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag" style="background: rgba(255,107,53,0.2);">📍 Find Us</div>
+  <h2 class="section-title">Visit Our Center</h2>
+  <p class="section-desc">Located in the heart of Bhildi, Banaskantha — easy to find!</p>
+  <div class="contact-grid">
+    <div class="contact-card reveal">
+      <span class="contact-icon">📍</span>
+      <div class="contact-label">Address</div>
+      <div class="contact-value">Smile Xerox, Near Goga Maharaj Mandir, Soyla Road, Bhildi-385530</div>
+    </div>
+    <div class="contact-card reveal">
+      <span class="contact-icon">📧</span>
+      <div class="contact-label">Email</div>
+      <div class="contact-value">codingwithsmile2025@gmail.com</div>
+    </div>
+    <div class="contact-card reveal">
+      <span class="contact-icon">📞</span>
+      <div class="contact-label">Call Us</div>
+      <div class="contact-value">97144 65982<br>85119 96361<br>96648 98764</div>
+    </div>
+    <div class="contact-card reveal">
+      <span class="contact-icon">⏰</span>
+      <div class="contact-label">Working Hours</div>
+      <div class="contact-value">Monday – Saturday<br>7:00 AM – 7:00 PM</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Coding With Smile 😊 · IT Training Center, Bhildi, Banaskantha, Gujarat</p>
+  <p style="margin-top: 0.5rem;">Made with ❤️ | <a href="mailto:codingwithsmile2025@gmail.com">codingwithsmile2025@gmail.com</a></p>
+</footer>
+
+<!-- CHATBOT -->
+<button class="chat-btn" onclick="toggleChat()" title="Chat with us!">💬</button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-avatar">😊</div>
+    <div>
+      <div class="chat-name">Coding With Smile Bot</div>
+      <div class="chat-status">Online · Typically replies instantly</div>
+    </div>
+    <div class="chat-close" onclick="toggleChat()">✕</div>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="msg bot">👋 Hello! Welcome to Coding With Smile! I'm here to help you with course information, fees, timings and more. What would you like to know?</div>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInput" placeholder="Ask about courses..." onkeypress="handleKey(event)">
+    <button class="chat-send" onclick="sendMessage()">➤</button>
+  </div>
+</div>
+
+<script>
+// ── COUNTER ANIMATION ──
+function animateCounters() {
+  document.querySelectorAll('[data-target]').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    let current = 0;
+    const step = target / 60;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { el.textContent = target + '+'; clearInterval(timer); }
+      else { el.textContent = Math.floor(current); }
+    }, 25);
+  });
+}
+setTimeout(animateCounters, 500);
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── SLOT SELECTION ──
+function selectSlot(el) {
+  document.querySelectorAll('.slot-card').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  const time = el.querySelector('.slot-time').textContent;
+  const slotSelect = document.getElementById('fslot');
+  if (slotSelect) {
+    for (let opt of slotSelect.options) {
+      if (opt.text.includes(time)) { slotSelect.value = opt.value; break; }
+    }
+  }
+}
+
+// ── OPEN ENQUIRY WITH COURSE ──
+function openEnquiry(course) {
+  document.getElementById('fcourse').value = course;
+  document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── FORM SUBMIT ──
+function submitForm() {
+  const name = document.getElementById('fname').value;
+  const phone = document.getElementById('fphone').value;
+  const course = document.getElementById('fcourse').value;
+  if (!name || !phone || !course) {
+    alert('Please fill Name, Phone and Course!');
+    return;
+  }
+  const msg = `Hello! I'm ${name} (${phone}). I'm interested in ${course} course at Coding With Smile. Please contact me for more details.`;
+  window.open(`https://wa.me/919714465982?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// ── HAMBURGER ──
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+  links.style.flexDirection = 'column';
+  links.style.position = 'absolute';
+  links.style.top = '70px'; links.style.left = '0'; links.style.right = '0';
+  links.style.background = 'white';
+  links.style.padding = '1rem 5%';
+  links.style.borderBottom = '1px solid #FFE0D0';
+}
+
+// ── CHATBOT ──
+function toggleChat() {
+  const w = document.getElementById('chatWindow');
+  w.classList.toggle('open');
+}
+
+function handleKey(e) { if (e.key === 'Enter') sendMessage(); }
+
+const botReplies = {
+  'python': '🐍 Python course is ₹5,000 for 2-3 months, 1hr/day. Topics: basics, OOP, projects & more! Want to book a FREE demo?',
+  'html': '🌐 HTML/CSS/JS course is ₹3,500. Learn to build beautiful websites! Duration: 2-3 months.',
+  'c++': '🔷 C++ course is ₹4,000. Learn OOP, classes, STL and more! Duration: 2-3 months.',
+  'php': '🐘 PHP course is ₹4,500. Server-side web development with MySQL. Duration: 2-3 months.',
+  'sql': '🗄️ SQL course is ₹3,500. Database management, queries & stored procedures. Duration: 2-3 months.',
+  'oracle': '🔶 Oracle course is ₹3,500. Enterprise DB, PL/SQL & admin. Duration: 2-3 months.',
+  '.net': '💜 .NET course is ₹4,500. C#, ASP.NET & Windows development. Duration: 2-3 months.',
+  'fee': '💰 Course fees range from ₹3,500 to ₹5,000. All courses include certificate! Which course interests you?',
+  'time': '⏰ We offer classes from 7AM to 7PM! Slots: 7AM, 9AM, 11AM, 2PM, 4PM, 6PM. Online also available!',
+  'demo': '🎁 FREE demo is available for all courses! Fill the enquiry form or call 97144 65982.',
+  'address': '📍 Smile Xerox, Near Goga Maharaj Mandir, Soyla Road, Bhildi-385530, Banaskantha, Gujarat.',
+  'contact': '📞 Call us: 97144 65982 (Nikunj) | 85119 96361 (Yogesh) | 96648 98764 (Bhavesh)',
+  'certificate': '🎓 Yes! Certificate is provided after you pass the final test. Valid and professional!',
+  'online': '🌐 Yes! We offer both online and offline classes. Online classes are fully flexible!',
+  'default': '😊 I can help you with course details, fees, timings, and enrollment! Try asking about "Python", "fees", "timings", "demo class" or "address".'
+};
+
+function getBotReply(msg) {
+  msg = msg.toLowerCase();
+  for (const [key, reply] of Object.entries(botReplies)) {
+    if (msg.includes(key)) return reply;
+  }
+  return botReplies.default;
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const msgs = document.getElementById('chatMessages');
+  const text = input.value.trim();
+  if (!text) return;
+
+  // User message
+  msgs.innerHTML += `<div class="msg user">${text}</div>`;
+  input.value = '';
+  msgs.scrollTop = msgs.scrollHeight;
+
+  // Typing indicator
+  const typing = document.createElement('div');
+  typing.className = 'msg bot typing';
+  typing.innerHTML = '<span></span><span></span><span></span>';
+  msgs.appendChild(typing);
+  msgs.scrollTop = msgs.scrollHeight;
+
+  // Bot reply after delay
+  setTimeout(() => {
+    typing.remove();
+    const reply = getBotReply(text);
+    msgs.innerHTML += `<div class="msg bot">${reply}</div>`;
+    msgs.scrollTop = msgs.scrollHeight;
+  }, 1000);
+}
+</script>
+</body>
+</html>
