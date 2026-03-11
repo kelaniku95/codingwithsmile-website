@@ -957,7 +957,7 @@ footer a { color: var(--primary); text-decoration: none; }
     <div class="contact-card reveal">
       <span class="contact-icon">📧</span>
       <div class="contact-label">Email</div>
-      <div class="contact-value">codingwithsmile2025@gmail.com</div>
+      <div class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="284b474c41464f5f415c405b4541444d1a181a1d684f45494144064b4745">[email&#160;protected]</a></div>
     </div>
     <div class="contact-card reveal">
       <span class="contact-icon">📞</span>
@@ -975,7 +975,7 @@ footer a { color: var(--primary); text-decoration: none; }
 <!-- FOOTER -->
 <footer>
   <p>© 2025 Coding With Smile 😊 · IT Training Center, Bhildi, Banaskantha, Gujarat</p>
-  <p style="margin-top: 0.5rem;">Made with ❤️ | <a href="mailto:codingwithsmile2025@gmail.com">codingwithsmile2025@gmail.com</a></p>
+  <p style="margin-top: 0.5rem;">Made with ❤️ | <a href="/cdn-cgi/l/email-protection#6a09050e03040d1d031e02190703060f585a585f2a0d070b030644090507"><span class="__cf_email__" data-cfemail="2c4f434845424b5b4558445f414540491e1c1e196c4b414d4540024f4341">[email&#160;protected]</span></a></p>
 </footer>
 
 <!-- CHATBOT -->
@@ -998,7 +998,7 @@ footer a { color: var(--primary); text-decoration: none; }
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── COUNTER ANIMATION ──
 function animateCounters() {
   document.querySelectorAll('[data-target]').forEach(el => {
@@ -1090,40 +1090,46 @@ const botReplies = {
   'default': '😊 I can help you with course details, fees, timings, and enrollment! Try asking about "Python", "fees", "timings", "demo class" or "address".'
 };
 
-function getBotReply(msg) {
-  msg = msg.toLowerCase();
+async function getBotReply(msg) {
+  try {
+    const response = await fetch('https://niks-shop-ai-agent.onrender.com/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg })
+    });
+    if (response.ok) {
+      const data = await response.json();
+      return data.reply || 'Sorry, could not get a response!';
+    }
+  } catch (e) {
+    console.log('AI error, using local:', e);
+  }
+  const m = msg.toLowerCase();
   for (const [key, reply] of Object.entries(botReplies)) {
-    if (msg.includes(key)) return reply;
+    if (m.includes(key)) return reply;
   }
   return botReplies.default;
 }
 
-function sendMessage() {
+async function sendMessage() {
   const input = document.getElementById('chatInput');
   const msgs = document.getElementById('chatMessages');
   const text = input.value.trim();
   if (!text) return;
 
-  // User message
   msgs.innerHTML += `<div class="msg user">${text}</div>`;
   input.value = '';
   msgs.scrollTop = msgs.scrollHeight;
 
-  // Typing indicator
   const typing = document.createElement('div');
   typing.className = 'msg bot typing';
   typing.innerHTML = '<span></span><span></span><span></span>';
   msgs.appendChild(typing);
   msgs.scrollTop = msgs.scrollHeight;
 
-  // Bot reply after delay
-  setTimeout(() => {
-    typing.remove();
-    const reply = getBotReply(text);
-    msgs.innerHTML += `<div class="msg bot">${reply}</div>`;
-    msgs.scrollTop = msgs.scrollHeight;
-  }, 1000);
+  const reply = await getBotReply(text);
+  typing.remove();
+  msgs.innerHTML += `<div class="msg bot">${reply}</div>`;
+  msgs.scrollTop = msgs.scrollHeight;
 }
-</script>
-</body>
-</html>
+'
