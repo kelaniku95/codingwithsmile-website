@@ -939,6 +939,12 @@ function openEnquiry(course){
   document.getElementById('enquiry').scrollIntoView({behavior:'smooth'});
 }
 
+// EmailJS Keys
+var EJS_SVC  = 'service_uha3xaj';
+var EJS_TPL  = 'template_k7g5ivc';
+var EJS_CTPL = 'template_zh4j7nl';
+var EJS_KEY  = 'NBhBm9UGQiifmRP9z';
+
 // FORM SUBMIT → Email + WhatsApp
 async function submitForm(){
   const name   = document.getElementById('fname').value.trim();
@@ -948,48 +954,51 @@ async function submitForm(){
   const slot   = document.getElementById('fslot').value;
   const msg    = document.getElementById('fmsg').value.trim();
 
-  if(!name || !phone || !course){
-    alert('Please fill Name, Phone and Course!');
-    return;
-  }
+  if(!name || !phone || !course){ alert('Please fill Name, Phone and Course!'); return; }
 
   const btn = document.getElementById('submitBtn');
   btn.textContent = '⏳ Sending...';
   btn.disabled = true;
 
-  // Send email to institute
-  if(typeof emailjs !== 'undefined' && EJS_KEY !== 'YOUR_PUBLIC_KEY'){
-    try {
-      await emailjs.send(EJS_SVC, EJS_TPL, {
-        from_name: name, from_phone: phone,
-        from_email: email || 'Not provided',
-        course: course, time_slot: slot || 'Not selected',
-        message: msg || 'No message'
-      });
-      console.log('Institute notified!');
-    } catch(e){ console.log('Institute email err:', e); }
+  // Send to institute
+  try {
+    await emailjs.send(EJS_SVC, EJS_TPL, {
+      from_name: name, from_phone: phone,
+      from_email: email||'Not provided',
+      course: course, time_slot: slot||'Not selected',
+      message: msg||'No message'
+    });
+    console.log('Institute email sent!');
+  } catch(e){ console.log('Institute err:', e); }
 
-    // Send confirmation to user
-    if(email){
-      try {
-        await emailjs.send(EJS_SVC, EJS_CTPL, {
-          to_name: name, to_email: email,
-          course: course, time_slot: slot || 'Will be confirmed', phone: phone
-        });
-        console.log('User confirmed!');
-      } catch(e){ console.log('Confirm err:', e); }
-    }
+  // Send confirmation to user
+  if(email){
+    try {
+      await emailjs.send(EJS_SVC, EJS_CTPL, {
+        to_name: name, to_email: email,
+        course: course, time_slot: slot||'Will be confirmed', phone: phone
+      });
+      console.log('User confirmation sent!');
+    } catch(e){ console.log('Confirm err:', e); }
   }
 
   btn.textContent = '✅ Sent! We will contact you soon.';
-  setTimeout(() => { btn.textContent = '🚀 Book Free Demo Class'; btn.disabled = false; }, 4000);
+  setTimeout(()=>{ btn.textContent='🚀 Book Free Demo Class'; btn.disabled=false; }, 4000);
 
-  // Open WhatsApp
-  let wa = `Hello Coding With Smile! 😊\n\nName: ${name}\nPhone: ${phone}\nCourse: ${course}`;
-  if(slot) wa += `\nTime Slot: ${slot}`;
-  if(msg)  wa += `\nMessage: ${msg}`;
-  wa += `\n\nI would like to book a FREE demo class!`;
-  setTimeout(() => window.open(`https://wa.me/919714465982?text=${encodeURIComponent(wa)}`, '_blank'), 500);
+  // WhatsApp
+  let wa = `Hello Coding With Smile! 😊
+
+Name: ${name}
+Phone: ${phone}
+Course: ${course}`;
+  if(slot) wa += `
+Time Slot: ${slot}`;
+  if(msg)  wa += `
+Message: ${msg}`;
+  wa += `
+
+I would like to book a FREE demo class!`;
+  setTimeout(()=> window.open(`https://wa.me/919714465982?text=${encodeURIComponent(wa)}`,'_blank'), 500);
 }
 
 // CHATBOT
@@ -1056,16 +1065,8 @@ async function sendMsg(){
   msgs.scrollTop = msgs.scrollHeight;
 }
 </script>
-
 <!-- EmailJS SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  var EJS_SVC  = 'service_uha3xaj';
-  var EJS_TPL  = 'template_zh4j7nl';
-  var EJS_CTPL = 'template_zh4j7nl';
-  var EJS_KEY  = 'NBhBm9UGQiifmRP9z';
-  if(EJS_KEY !== 'YOUR_PUBLIC_KEY'){ emailjs.init(EJS_KEY); }
-</script>
-
+<script>emailjs.init('NBhBm9UGQiifmRP9z');</script>
 </body>
 </html>
