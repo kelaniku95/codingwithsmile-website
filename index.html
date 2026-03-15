@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coding With Smile 😊 | IT Training Center Bhildi</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+<script>
+(function(){
+  var s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+  s.onload = function(){ emailjs.init({ publicKey: 'NBhBm9UGQiifmRP9z' }); };
+  document.head.appendChild(s);
+})();
+</script>
 <style>
 :root {
   --bg: #080C14;
@@ -89,14 +97,14 @@ nav{
   padding:0.4rem 1rem;border-radius:50px;
   font-size:0.8rem;font-weight:600;color:var(--orange);
   margin-bottom:1.5rem;
-  animation:fadeUp 0.5s ease both;
+  opacity:1;
 }
 .badge-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 1.5s infinite;}
 h1{
   font-family:'Space Grotesk',sans-serif;
   font-size:clamp(2.8rem,5.5vw,4.5rem);font-weight:800;
   line-height:1.05;margin-bottom:1.5rem;
-  animation:fadeUp 0.5s 0.1s ease both;
+  opacity:1;
 }
 h1 .line2{color:var(--orange);display:block;}
 h1 .line3{
@@ -107,9 +115,9 @@ h1 .line3{
 .hero-desc{
   color:var(--muted);font-size:1.05rem;line-height:1.8;
   max-width:480px;margin-bottom:2rem;
-  animation:fadeUp 0.5s 0.2s ease both;
+  opacity:1;
 }
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp 0.5s 0.3s ease both;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;opacity:1;}
 .btn-fire{
   background:linear-gradient(135deg,var(--orange),#FF8A65);
   color:white;padding:0.85rem 2rem;border-radius:10px;
@@ -128,14 +136,14 @@ h1 .line3{
 .btn-ghost:hover{border-color:var(--orange);color:var(--orange);}
 .hero-stats{
   display:flex;gap:2rem;margin-top:3rem;
-  animation:fadeUp 0.5s 0.4s ease both;
+  opacity:1;
 }
 .hstat{border-left:2px solid var(--orange);padding-left:1rem;}
 .hstat-num{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;color:var(--text);display:block;}
 .hstat-label{font-size:0.8rem;color:var(--muted);}
 
 /* HERO RIGHT - Terminal */
-.hero-right{position:relative;z-index:1;animation:fadeIn 0.8s 0.3s ease both;}
+.hero-right{position:relative;z-index:1;opacity:1;}
 .terminal{
   background:#0A0E1A;border:1px solid var(--border);
   border-radius:16px;overflow:hidden;
@@ -441,8 +449,9 @@ footer a{color:var(--orange);text-decoration:none;}
 .typing-dots span:nth-child(3){animation-delay:0.4s;}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(25px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal{opacity:1;transform:none;transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.animate{opacity:0;transform:translateY(25px);}
+.reveal.animate.visible{opacity:1;transform:translateY(0);}
 
 /* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
@@ -795,7 +804,7 @@ footer a{color:var(--orange);text-decoration:none;}
         <div class="eq-text"><h4>Flexible Timings</h4><p>7AM to 7PM — pick a slot that fits your life.</p></div>
       </div>
     </div>
-    <div class="eq-form reveal">
+    <div class="eq-form">
       <div class="form-row">
         <div class="fg"><label>Full Name *</label><input type="text" id="fname" placeholder="Your full name"></div>
         <div class="fg"><label>Phone Number *</label><input type="tel" id="fphone" placeholder="9876543210"></div>
@@ -850,7 +859,7 @@ footer a{color:var(--orange);text-decoration:none;}
     <div class="contact-card reveal">
       <span class="cc-icon">📧</span>
       <div class="cc-label">Email</div>
-      <div class="cc-val"><a href="mailto:codingwithsmile2025@gmail.com" style="color:var(--orange);text-decoration:none;">codingwithsmile2025@gmail.com</a></div>
+      <div class="cc-val"><a href="/cdn-cgi/l/email-protection#40232f24292e2737293428332d292c257270727500272d21292c6e232f2d" style="color:var(--orange);text-decoration:none;"><span class="__cf_email__" data-cfemail="e5868a818c8b82928c918d96888c8980d7d5d7d0a58288848c89cb868a88">[email&#160;protected]</span></a></div>
     </div>
     <div class="contact-card reveal">
       <span class="cc-icon">📞</span>
@@ -872,7 +881,7 @@ footer a{color:var(--orange);text-decoration:none;}
 <!-- FOOTER -->
 <footer>
   <p>© 2025 <strong style="color:var(--orange)">Coding With Smile 😊</strong> · IT Training Center, Bhildi, Banaskantha, Gujarat</p>
-  <p style="margin-top:8px;">Made with ❤️ | <a href="mailto:codingwithsmile2025@gmail.com">codingwithsmile2025@gmail.com</a></p>
+  <p style="margin-top:8px;">Made with ❤️ | <a href="/cdn-cgi/l/email-protection#bcdfd3d8d5d2dbcbd5c8d4cfd1d5d0d98e8c8e89fcdbd1ddd5d092dfd3d1"><span class="__cf_email__" data-cfemail="4f2c202b26212838263b273c2226232a7d7f7d7a0f28222e2623612c2022">[email&#160;protected]</span></a></p>
 </footer>
 
 <!-- CHATBOT -->
@@ -896,26 +905,40 @@ footer a{color:var(--orange);text-decoration:none;}
 </div>
 
 <script>
-// SCROLL REVEAL
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// SCROLL REVEAL - safe version, never hides things that are already visible
+function revealAll(){
+  document.querySelectorAll('.reveal').forEach(function(el){
+    var r = el.getBoundingClientRect();
+    if(r.top < window.innerHeight + 100) el.classList.add('visible');
+  });
+}
+document.addEventListener('scroll', revealAll, {passive:true});
+revealAll();
+setTimeout(revealAll, 200);
+setTimeout(revealAll, 800);
+</script>
 
+<script>
 // COUNTER
 function runCounters(){
-  document.querySelectorAll('[data-target]').forEach(el => {
-    const t = parseInt(el.dataset.target), step = t/50;
-    let c = 0;
-    const timer = setInterval(() => {
+  document.querySelectorAll('[data-target]').forEach(function(el){
+    if(el.getAttribute('data-counted')) return;
+    el.setAttribute('data-counted','1');
+    var t = parseInt(el.getAttribute('data-target'));
+    var c = 0, step = Math.max(1, t/60);
+    var timer = setInterval(function(){
       c += step;
       if(c >= t){ el.textContent = t+'+'; clearInterval(timer); }
       else el.textContent = Math.floor(c);
-    },30);
+    }, 25);
   });
 }
-setTimeout(runCounters, 400);
+runCounters();
+setTimeout(runCounters, 500);
+setTimeout(runCounters, 1500);
+</script>
 
+<script>
 // HAMBURGER
 function toggleMenu(){
   document.getElementById('mobileMenu').classList.toggle('open');
@@ -926,10 +949,12 @@ function closeMenu(){
 
 // SLOT SELECT
 function selectSlot(el, time){
-  document.querySelectorAll('.slot').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.slot').forEach(function(s){ s.classList.remove('active'); });
   el.classList.add('active');
-  const sel = document.getElementById('fslot');
-  for(let o of sel.options){ if(o.text.startsWith(time)){ sel.value = o.value; break; } }
+  var sel = document.getElementById('fslot');
+  for(var i=0; i<sel.options.length; i++){
+    if(sel.options[i].text.startsWith(time)){ sel.value = sel.options[i].value; break; }
+  }
   document.getElementById('enquiry').scrollIntoView({behavior:'smooth'});
 }
 
@@ -938,75 +963,75 @@ function openEnquiry(course){
   document.getElementById('fcourse').value = course;
   document.getElementById('enquiry').scrollIntoView({behavior:'smooth'});
 }
+</script>
 
+<script>
 // EmailJS Keys
 var EJS_SVC  = 'service_uha3xaj';
 var EJS_TPL  = 'template_k7g5ivc';
 var EJS_CTPL = 'template_zh4j7nl';
-var EJS_KEY  = 'NBhBm9UGQiifmRP9z';
 
-// FORM SUBMIT → Email + WhatsApp
+// FORM SUBMIT
 async function submitForm(){
-  const name   = document.getElementById('fname').value.trim();
-  const phone  = document.getElementById('fphone').value.trim();
-  const email  = document.getElementById('femail').value.trim();
-  const course = document.getElementById('fcourse').value;
-  const slot   = document.getElementById('fslot').value;
-  const msg    = document.getElementById('fmsg').value.trim();
+  var name   = document.getElementById('fname').value.trim();
+  var phone  = document.getElementById('fphone').value.trim();
+  var email  = document.getElementById('femail').value.trim();
+  var course = document.getElementById('fcourse').value;
+  var slot   = document.getElementById('fslot').value;
+  var msg    = document.getElementById('fmsg').value.trim();
 
-  if(!name || !phone || !course){ alert('Please fill Name, Phone and Course!'); return; }
+  if(!name || !phone || !course){
+    alert('Please fill Name, Phone and Course!');
+    return;
+  }
 
-  const btn = document.getElementById('submitBtn');
+  var btn = document.getElementById('submitBtn');
   btn.textContent = '⏳ Sending...';
   btn.disabled = true;
 
-  // Send to institute
-  try {
-    await emailjs.send(EJS_SVC, EJS_TPL, {
-      from_name: name, from_phone: phone,
-      from_email: email||'Not provided',
-      course: course, time_slot: slot||'Not selected',
-      message: msg||'No message'
-    });
-    console.log('Institute email sent!');
-  } catch(e){ console.log('Institute err:', e); }
-
-  // Send confirmation to user
-  if(email){
+  // Send emails via EmailJS (only if loaded)
+  if(typeof emailjs !== 'undefined'){
     try {
-      await emailjs.send(EJS_SVC, EJS_CTPL, {
-        to_name: name, to_email: email,
-        course: course, time_slot: slot||'Will be confirmed', phone: phone
+      await emailjs.send(EJS_SVC, EJS_TPL, {
+        from_name: name, from_phone: phone,
+        from_email: email || 'Not provided',
+        course: course, time_slot: slot || 'Not selected',
+        message: msg || 'No message'
       });
-      console.log('User confirmation sent!');
-    } catch(e){ console.log('Confirm err:', e); }
+      console.log('Institute email sent!');
+    } catch(e){ console.log('Institute email error:', e); }
+    if(email){
+      try {
+        await emailjs.send(EJS_SVC, EJS_CTPL, {
+          to_name: name, to_email: email,
+          course: course, time_slot: slot || 'Will be confirmed', phone: phone
+        });
+        console.log('Student confirmation sent!');
+      } catch(e){ console.log('Confirmation error:', e); }
+    }
+  } else {
+    console.log('EmailJS not ready - WhatsApp will still open');
   }
 
   btn.textContent = '✅ Sent! We will contact you soon.';
-  setTimeout(()=>{ btn.textContent='🚀 Book Free Demo Class'; btn.disabled=false; }, 4000);
+  setTimeout(function(){ btn.textContent='🚀 Book Free Demo Class'; btn.disabled=false; }, 4000);
 
   // WhatsApp
-  let wa = `Hello Coding With Smile! 😊
-
-Name: ${name}
-Phone: ${phone}
-Course: ${course}`;
-  if(slot) wa += `
-Time Slot: ${slot}`;
-  if(msg)  wa += `
-Message: ${msg}`;
-  wa += `
-
-I would like to book a FREE demo class!`;
-  setTimeout(()=> window.open(`https://wa.me/919714465982?text=${encodeURIComponent(wa)}`,'_blank'), 500);
+  var wa = 'Hello Coding With Smile!\n\nName: ' + name + '\nPhone: ' + phone + '\nCourse: ' + course;
+  if(slot) wa += '\nTime Slot: ' + slot;
+  if(msg)  wa += '\nMessage: ' + msg;
+  wa += '\n\nI would like to book a FREE demo class!';
+  setTimeout(function(){ window.open('https://wa.me/919714465982?text=' + encodeURIComponent(wa), '_blank'); }, 500);
 }
+</script>
 
+<script>
 // CHATBOT
 function toggleChat(){
   document.getElementById('chatBox').classList.toggle('open');
 }
 
-const localReplies = {
+var localReplies = {
   python: '🐍 Python course: ₹5,000 · 2-3 months · 1hr/day. Topics include basics, OOP, projects & more! Want to book a FREE demo?',
   html: '🌐 HTML/CSS/JS course: ₹3,500 · 2-3 months. Build beautiful websites from scratch!',
   'c++': '🔷 C++ course: ₹4,000 · 2-3 months. OOP, classes, inheritance & STL!',
@@ -1025,48 +1050,49 @@ const localReplies = {
 };
 
 async function sendMsg(){
-  const inp = document.getElementById('chatInp');
-  const msgs = document.getElementById('chatMsgs');
-  const text = inp.value.trim();
+  var inp  = document.getElementById('chatInp');
+  var msgs = document.getElementById('chatMsgs');
+  var text = inp.value.trim();
   if(!text) return;
 
-  msgs.innerHTML += `<div class="cmsg user">${text}</div>`;
+  msgs.innerHTML += '<div class="cmsg user">' + text + '</div>';
   inp.value = '';
   msgs.scrollTop = msgs.scrollHeight;
 
-  // Typing
-  const typing = document.createElement('div');
+  var typing = document.createElement('div');
   typing.className = 'cmsg bot';
   typing.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
   msgs.appendChild(typing);
   msgs.scrollTop = msgs.scrollHeight;
 
+  var reply = null;
+
   // Try AI first
-  let reply = null;
   try {
-    const res = await fetch('https://niks-shop-ai-agent.onrender.com/chat', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({message:text}),
+    var res = await fetch('https://niks-shop-ai-agent.onrender.com/chat', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({message: text}),
       signal: AbortSignal.timeout(8000)
     });
-    if(res.ok){ const d = await res.json(); reply = d.reply; }
-  } catch(e){ console.log('AI offline, using local'); }
+    if(res.ok){ var d = await res.json(); reply = d.reply; }
+  } catch(e){ console.log('AI offline, using local replies'); }
 
-  // Fallback to local
+  // Fallback to local replies
   if(!reply){
-    const m = text.toLowerCase();
-    for(const [k,v] of Object.entries(localReplies)){ if(m.includes(k)){ reply = v; break; } }
-    if(!reply) reply = '😊 I can help with course info, fees, timings & admission! Try: "Python course", "fees", "timings", "demo class" or "address".';
+    var m = text.toLowerCase();
+    var keys = Object.keys(localReplies);
+    for(var i=0; i<keys.length; i++){
+      if(m.includes(keys[i])){ reply = localReplies[keys[i]]; break; }
+    }
+    if(!reply) reply = '😊 I can help with courses, fees, timings, demo & admission! Try asking: "Python course", "fees", "demo", "timings" or "contact".';
   }
 
   typing.remove();
-  msgs.innerHTML += `<div class="cmsg bot">${reply}</div>`;
+  msgs.innerHTML += '<div class="cmsg bot">' + reply + '</div>';
   msgs.scrollTop = msgs.scrollHeight;
 }
 </script>
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>emailjs.init('NBhBm9UGQiifmRP9z');</script>
+
 </body>
 </html>
