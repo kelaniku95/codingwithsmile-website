@@ -967,7 +967,7 @@ function openEnquiry(course){
 
 <script>
 // EmailJS Keys
-var EJS_SVC  = 'service_uha3xaj';
+var EJS_SVC  = 'service_sice7mo';
 var EJS_TPL  = 'template_k7g5ivc';
 var EJS_CTPL = 'template_zh4j7nl';
 
@@ -993,18 +993,22 @@ async function submitForm(){
   if(typeof emailjs !== 'undefined'){
     try {
       await emailjs.send(EJS_SVC, EJS_TPL, {
+        name: name,
         from_name: name, from_phone: phone,
         from_email: email || 'Not provided',
         course: course, time_slot: slot || 'Not selected',
-        message: msg || 'No message'
+        message: msg || 'No message',
+        email: email || 'Not provided'
       });
       console.log('Institute email sent!');
     } catch(e){ console.log('Institute email error:', e); }
     if(email){
       try {
         await emailjs.send(EJS_SVC, EJS_CTPL, {
+          name: name,
           to_name: name, to_email: email,
-          course: course, time_slot: slot || 'Will be confirmed', phone: phone
+          course: course, time_slot: slot || 'Will be confirmed', phone: phone,
+          email: email
         });
         console.log('Student confirmation sent!');
       } catch(e){ console.log('Confirmation error:', e); }
